@@ -7,6 +7,11 @@ iOS application for Marvel Characters.
 
 Browse, Search and view detials of Marvel Characters.
 
+## Screenshots
+
+![Images show application arichecture](Documentation/1.png)
+![Images show application arichecture](Documentation/2.png)
+![Images show application arichecture](Documentation/3.png)
 
 ## Application Arichecture
 
