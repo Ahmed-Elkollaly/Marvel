@@ -9,9 +9,11 @@ Browse, Search and view detials of Marvel Characters.
 
 ## Screenshots
 
-![Images show application arichecture](Documentation/1.png)
-![Images show application arichecture](Documentation/2.png)
-![Images show application arichecture](Documentation/3.png)
+<p float="left">
+  <img src="Documentation/1.png" width="100" />
+  <img src="Documentation/2.png" width="100" /> 
+  <img src="Documentation/3.png" width="100" />
+</p>
 
 ## Application Arichecture
 
