@@ -110,9 +110,9 @@ extension RemoteCharacterRepository : Respository {
         self.marvelService.fetchData { [weak self] response, data in
             
             
-            guard let strongSelf = self else  { return }
+            guard let strongSelf = self else  { print("\(#function): self is nil"); return }
             
-            guard let data = data else { return completionHandler([]) }
+            guard let data = data else { print("\(#function): Data is nil");return completionHandler([]) }
             
             
             completionHandler(strongSelf.decodeDataToMarvelCharacters(data: data))

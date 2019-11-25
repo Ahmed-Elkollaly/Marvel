@@ -24,7 +24,7 @@ class NetworkRouter {
         let task = session.dataTask(with: request){
             (data,response,error) in
             
-//            print("Networking...")
+            print("Networking...")
             requestResult((data,response,error))
             
         }

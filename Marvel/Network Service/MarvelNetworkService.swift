@@ -38,7 +38,7 @@ class MarvelNetworkService {
     
     func fetchData(completionHandler: @escaping ((NetworkResponse,Data?)) -> Void ){
         
-        guard let url = constructURL(endPoint: endPoint) else { return completionHandler((.urlIsNil,nil)) }
+        guard let url = constructURL(endPoint: endPoint) else { print("\(#function): URL is nil");return completionHandler((.urlIsNil,nil)) }
         
         async {
             
@@ -46,20 +46,21 @@ class MarvelNetworkService {
             
             guard let strongSelf = self else { return }
             
+            print("\(#function) URL: \(url) ")
             strongSelf.network.requestData(url: url) { (data,response,error) in
                 
                 guard (error == nil) else{
-                    print("error: \(String(describing: error))")
+                    print("\(#function): error: \(String(describing: error))")
                     return completionHandler( (.errorNetworkExists,nil))
                 }
                 
                 
                 guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else{
-                    
+                    print("\(#function): Status Code Error :\((response as? HTTPURLResponse)?.statusCode)")
                     return completionHandler( (.errorStatusCode,nil))
                 }
                 
-                guard let data = data else { return completionHandler( (.dataIsNilFromRequest,nil)) }
+                guard let data = data else { print("\(#function): Data is nil"); return completionHandler( (.dataIsNilFromRequest,nil)) }
                 
                 
                 completionHandler((.success,data))

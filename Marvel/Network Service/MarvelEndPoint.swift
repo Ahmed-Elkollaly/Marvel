@@ -97,12 +97,12 @@ enum MarvelApiEndPoint : ApiEndPointProtocol {
 fileprivate struct MarvelAuthentication {
     
     
-    static let publicKey = "your-public-key"
+    static let publicKey = "5e0e99e03236e2174c5df378d9a679a3"
     
     static let timeStamp = String(Date().timeIntervalSinceReferenceDate)
     
     
-    private static let privateKey = "your-private-key"
+    private static let privateKey = "8033fb689ae2b7116413bfc5fd14a39ecb650d2d"
     
     static var hashValue :String? {
         

@@ -48,6 +48,7 @@ class MarvelCharactersViewModel {
         
         remoteCharacterRepository.getAll { [weak self] characters in
             
+            print("Characters Count: \(characters.count)")
             guard let strongSelf = self else { return }
             
             strongSelf.marvelCharacters = characters

@@ -19,7 +19,7 @@ class SearchMarvelCharacterVC: UIViewController {
        
         let searchVC = CustomSearchController(searchResultsController: nil)
         searchVC.searchBar.delegate = self
-        searchVC.dimsBackgroundDuringPresentation = false
+       
         searchVC.hidesNavigationBarDuringPresentation = false
         searchVC.searchBar.placeholder = "Search... "
         searchVC.searchBar.showsCancelButton = false

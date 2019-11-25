@@ -37,7 +37,11 @@ class MarvelCharactersVC: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         
-        let cv = UICollectionView(frame: self.view.safeAreaLayoutGuide.layoutFrame, collectionViewLayout: layout)
+        
+        let safeFrame = self.view.safeAreaLayoutGuide.layoutFrame
+        let collectioVeiwFrame = CGRect(x: safeFrame.minX, y: safeFrame.minY, width: safeFrame.width, height: self.view.frame.height - safeFrame.minY)
+        
+        let cv = UICollectionView(frame: collectioVeiwFrame, collectionViewLayout: layout)
         
         let nib = UINib(nibName: MarvelCharacterCell.identifier, bundle: nil)
         cv.register(nib, forCellWithReuseIdentifier: MarvelCharacterCell.identifier)
@@ -60,19 +64,13 @@ class MarvelCharactersVC: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .white
         
-        async_main {
+        
+        
+        marvelCharacterViewModel.charactersDelegate = self
+        setupUI()
+        searchCharacterVC.searchBarDelegate = self
             
-            [weak self] in
-            
-            guard let strongSelf = self else { return }
-            
-            strongSelf.marvelCharacterViewModel.charactersDelegate = self
-            
-            strongSelf.setupUI()
-            
-            strongSelf.searchCharacterVC.searchBarDelegate = self
-            
-        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
